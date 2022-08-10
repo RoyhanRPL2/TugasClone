@@ -11,11 +11,12 @@ class igHome extends StatefulWidget {
 }
 
 class _igHomeState extends State<igHome> {
-  List<String> items = ['Indonesia Citizen', 'Foreigner'];
-  String? selectedItem = 'Indonesia Citizen';
+  List _items = ['Indonesia Citizen', 'Foreigner'];
+  String selectedItem = 'Indonesia Citizen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -89,17 +90,50 @@ class _igHomeState extends State<igHome> {
                       ],
                     ),
                   ),
-                  Row(
-                    children: [
-                      DropdownButton(
-                        items: [
-                          DropdownMenuItem(
-                            child: Text("Indonesian Citizen"),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                    child: Column(
+                      children: [
+                        Container(
+                          child: Container(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 400,
+                                  decoration: ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                          width: .0, style: BorderStyle.solid),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5.0)),
+                                    ),
+                                  ),
+                                  child: SizedBox(
+                                    child: DropdownButton(
+                                      items: [
+                                        DropdownMenuItem(
+                                            child: Text("Indonesia Citizen"),
+                                            value: "USA"),
+                                        DropdownMenuItem(
+                                            child: Text("Foreigner"),
+                                            value: "Foreign"),
+                                      ],
+                                      onChanged: (value) {
+                                        setState(() {
+                                          null;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                        ],
-                        onChanged: null,
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -205,6 +239,157 @@ class _igHomeState extends State<igHome> {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 40),
+                    child: Row(
+                      children: [Text("Passport Number")],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: 400,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              labelText: "Passport Number",
+                              border: OutlineInputBorder()),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 1.0, // soften the shadow
+                      spreadRadius: 1.0, //extend the shadow
+                      offset: Offset(
+                        2.0, // Move to right 10  horizontally
+                        2.0, // Move to bottom 10 Vertically
+                      ),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+                padding: EdgeInsets.all(20),
+                width: 400,
+                child: Column(children: [
+                  Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "Email",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "royhanbumi227@gmail.com",
+                      )
+                    ],
+                  )
+                ]),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 1.0, // soften the shadow
+                      spreadRadius: 1.0, //extend the shadow
+                      offset: Offset(
+                        2.0, // Move to right 10  horizontally
+                        2.0, // Move to bottom 10 Vertically
+                      ),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+                padding: EdgeInsets.all(20),
+                width: 400,
+                child: Column(children: [
+                  Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "Phone Number",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "Add Phone Number",
+                          style: TextStyle(color: Colors.lightBlue.shade300),
+                        )
+                      ],
+                    ),
+                  )
+                ]),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 200.0,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: (() {}),
+                      child: Text(
+                        "Save",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
             )
           ],
         ),
