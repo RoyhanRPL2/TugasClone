@@ -372,6 +372,9 @@ class _igHomeState extends State<igHome> {
               height: 20,
             ),
             Container(
+              margin: EdgeInsets.only(
+                left: 20,
+              ),
               child: Column(
                 children: [
                   SizedBox(
